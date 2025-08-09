@@ -206,16 +206,24 @@ footer {
 
 /* Hero (white, large heading) */
 #hero.hero { padding: 72px 0 32px; background: #fff; color: #0f172a; text-align: center; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; }
 .hero-left { text-align: left; }
 .hero-right { display:flex; align-items:center; justify-content:center; }
 .hero-right img { max-width: 100%; height: auto; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
 .hero-right.placeholder { min-height: 320px; border: 1px dashed #cbd5e1; border-radius: 14px; background: #f8fafc; }
 .badge { display: inline-block; padding: 8px 12px; border-radius: 999px; background: #f1f5f9; color: #334155; font-size: .9rem; }
 .badge .yc { background: #fde68a; padding: 2px 6px; border-radius: 6px; }
-.hero-title { font-size: 56px; line-height: 1.1; margin: 18px 0; }
+.hero-title { font-size: 50px; line-height: 1.1; margin: 18px 0; }
 .hero-subtitle { max-width: 760px; margin: 0 auto 22px; color: #475569; }
 .hero-ctas { margin-bottom: 12px; }
+.micro-proof { 
+  font-size: 13px; 
+  color: #94a3b8; 
+  margin: 12px 0 0 0; 
+  text-align: left;
+  font-weight: 400;
+  line-height: 1.4;
+}
 .social-proof { color: #475569; }
 
 /* Logos row */
@@ -256,12 +264,79 @@ footer {
 .footer-col p { color: #475569; }
 .footer-bottom { text-align: center; color: #64748b; border-top: 1px solid #e2e8f0; padding: 14px 0; }
 
+/* Integration Showcase */
+.integration-showcase {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  color: #0f172a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.integration-showcase h3 {
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.social-platforms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.platform-logo {
+  transition: transform 0.2s ease;
+}
+
+.platform-logo:hover {
+  transform: translateY(-2px);
+}
+
+.platform-logo svg {
+  display: block;
+}
+
+.see-more {
+  color: #475569;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.see-more:hover {
+  opacity: 1;
+  color: #334155;
+}
+
 /* Small screens */
 @media (max-width: 768px) {
   .hero-title { font-size: 40px; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-left { text-align: center; }
   .logos-row { grid-template-columns: repeat(3, 1fr); }
+  
+  .integration-showcase {
+    padding: 24px 16px;
+  }
+  
+  .social-platforms {
+    gap: 8px;
+  }
+  
+  .platform-logo svg {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Header improvements */
