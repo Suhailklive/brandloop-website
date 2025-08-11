@@ -223,18 +223,21 @@ class BetaModal {
             this.setSubmittingState(true);
             this.hideError();
             
-            console.log('Starting email sending simulation...');
+            console.log('Starting REAL email sending via EmailJS...');
             
-            // Simulate form submission
+            // Send real emails via EmailJS
             await this.sendEmails(data);
             
-            console.log('Email simulation completed - showing success');
+            console.log('Real emails sent successfully - showing success');
             
             // Show success state
             this.showSuccess();
             
         } catch (error) {
-            console.error('Form submission error:', error);
+            console.error('=== FORM SUBMISSION ERROR ===');
+            console.error('Error object:', error);
+            console.error('Error message:', error.message);
+            console.error('Error stack:', error.stack);
             this.showError();
             this.setSubmittingState(false);
         }
@@ -304,32 +307,49 @@ class BetaModal {
             // Initialize EmailJS with your actual public key
             emailjs.init("GQfrVGKMJznloBnLl");
             
+            // Prepare template data with all possible variable names
+            const templateData = {
+                // User info - multiple naming conventions
+                from_name: data.fullName,
+                name: data.fullName,
+                user_name: data.fullName,
+                to_name: data.fullName,
+                
+                // Company info
+                from_company: data.companyName,
+                company: data.companyName,
+                company_name: data.companyName,
+                
+                // Email info
+                from_email: data.workEmail,
+                email: data.workEmail,
+                user_email: data.workEmail,
+                to_email: data.workEmail,
+                reply_to: data.workEmail,
+                
+                // Website info
+                company_website: data.companyWebsite,
+                website: data.companyWebsite,
+                
+                // Additional info
+                date: new Date().toLocaleDateString(),
+                message: `New beta signup from ${data.fullName} at ${data.companyName}`
+            };
+            
             // Send notification email to your team
             console.log('Sending notification to team...');
-            await emailjs.send("service_xz4ehuw", "template_d4oal7h", {
-                from_name: data.fullName,
-                from_company: data.companyName,
-                from_email: data.workEmail,
-                company_website: data.companyWebsite,
-                to_email: "suhailklive@gmail.com", // Your email for notifications
-                subject: "New beta signup — first-week posts request"
-            });
+            await emailjs.send("service_xz4ehuw", "template_d4oal7h", templateData);
             
             // Send confirmation email to user
             console.log('Sending confirmation to user...');
-            await emailjs.send("service_xz4ehuw", "template_uablpag", {
-                to_name: data.fullName,
-                to_email: data.workEmail,
-                company_website: data.companyWebsite,
-                from_name: "Team Brandloop",
-                subject: "Thanks for joining the Brandloop beta"
-            });
+            await emailjs.send("service_xz4ehuw", "template_uablpag", templateData);
             
             console.log('Both emails sent successfully!');
             return true;
             
         } catch (error) {
             console.error('Email sending failed:', error);
+            console.error('Error details:', error.text || error.message || error);
             throw new Error('Failed to send emails. Please try again.');
         }
     }
