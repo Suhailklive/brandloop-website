@@ -197,7 +197,7 @@ footer {
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; text-transform: lowercase; }
 .brand img { height: 42px; }
 .nav-links { display: flex; align-items: center; gap: 36px; }
-.btn { display: inline-block; border-radius: 10px; padding: 10px 16px; font-weight: 600; text-decoration: none; }
+.btn { display: inline-block; border-radius: 10px; padding: 10px 16px; font-weight: 600; text-decoration: none; min-height: 44px; }
 .btn-primary { background: #1f6b2b; color: #fff !important; }
 .btn-outline { border: 1px solid #cbd5e1; color: #0f172a; }
 .btn-light { background: #fff; color: #0f172a; }
@@ -269,7 +269,7 @@ footer {
 /* Features: cards style */
 #features.features { padding: 80px 0; background: linear-gradient(135deg, #ffffff 0%, #f8fffe 50%, #ffffff 100%); }
 .section-title { text-align: center; font-size: 36px; margin: 0 auto 28px; max-width: 900px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; }
 .card { background: #ffffff; border: 1px solid #e8f5e8; border-radius: 24px; padding: 0; box-shadow: 0 8px 32px rgba(31, 107, 43, 0.08); transition: all 0.3s ease; overflow: hidden; position: relative; }
 .card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(31, 107, 43, 0.15); border-color: #1f6b2b; }
 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #1f6b2b, #22c55e); opacity: 0; transition: opacity 0.3s ease; }
@@ -406,6 +406,56 @@ footer {
   }
 }
 
+/* Issue 4: Hero Grid Gap (≤640px) */
+@media (max-width: 640px) {
+  .hero-grid { gap: 24px; }
+}
+
+/* Issue 1: Logo Size on Mobile (320-480px) */
+@media (max-width: 480px) {
+  .brand img { height: 32px; }
+  
+  /* Issue 5: Stats Grid Single Column (≤480px) */
+  .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+  
+  /* Global container padding for small screens */
+  .container { padding: 0 12px; }
+}
+
+/* Issue 3: Card Grid Horizontal Scroll (320-414px) */
+@media (max-width: 414px) {
+  .cards { grid-template-columns: 1fr; gap: 24px; }
+  
+  /* Issue 11: Platform Logo Tight Layout (≤414px) */
+  .platform-logo svg { width: 28px; height: 28px; }
+}
+
+/* Issue 2: Nav CTA Wrapping (320-375px) */
+@media (max-width: 375px) {
+  .nav .btn { font-size: 13px; padding: 8px 12px; }
+  
+  /* Issue 7: Input Comfort on 320-375px */
+  .form-group input { padding: 10px 12px; font-size: 16px; }
+  
+  /* Issue 8: Modal Container Width (≤375px) */
+  .modal-container { width: 92%; margin: 15px; }
+}
+
+/* Issue 12: Hero Title Scaling */
+@media (max-width: 480px) {
+  .hero-title { font-size: 32px; }
+}
+
+@media (max-width: 360px) {
+  .hero-title { font-size: 28px; }
+}
+
+/* Issue 10: Card Image Scaling (≤640px) */
+@media (max-width: 640px) {
+  .card-image { min-height: 200px; }
+  .card-image img { max-height: 180px; object-fit: cover; width: 100%; }
+}
+
 /* Header improvements */
 .nav .container { 
   display: flex; 
@@ -499,6 +549,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .modal-close:hover {

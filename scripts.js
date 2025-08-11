@@ -144,7 +144,8 @@ class BetaModal {
         // Reset to form state
         this.resetToFormState();
         this.modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+        // Issue 9: Modal Body Scroll Lock
+        document.body.style.overflow = 'hidden';
         
         // Focus first input
         setTimeout(() => {
@@ -160,7 +161,8 @@ class BetaModal {
         console.log('Closing modal...');
         
         this.modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
+        // Issue 9: Restore body scroll when modal closes
+        document.body.style.overflow = '';
         
         // Reset form after animation completes
         setTimeout(() => {
