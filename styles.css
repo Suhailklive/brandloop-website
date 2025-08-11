@@ -331,6 +331,53 @@ footer {
   .footer-bottom-content { flex-direction: column; gap: 12px; text-align: center; }
 }
 
+/* Footer: Center-align and stack vertically on small screens */
+@media (max-width: 480px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  
+  .footer-left {
+    text-align: center;
+    max-width: none;
+  }
+  
+  .footer-brand {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .footer-tagline {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  
+  .footer-email {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-right {
+    text-align: center;
+  }
+  
+  .footer-right h4 {
+    margin-bottom: 8px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
 /* Integration Showcase */
 .integration-showcase {
   background: #f8fafc;
@@ -420,6 +467,27 @@ footer {
   
   /* Global container padding for small screens */
   .container { padding: 0 12px; }
+  
+  /* Header: Stack logo and CTA button vertically */
+  .nav .container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav .btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Issue 3: Card Grid Horizontal Scroll (320-414px) */
