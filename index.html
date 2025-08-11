@@ -212,6 +212,69 @@
       </div>
     </div>
   </footer>
+
+  <!-- Beta Signup Modal -->
+  <div id="betaModal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="modalTitle">Join the Brandloop Beta</h2>
+        <button class="modal-close" id="modalClose">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Form State -->
+      <div id="formState" class="modal-content">
+        <form id="betaSignupForm" class="signup-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g., Priya Nair" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" name="companyName" placeholder="e.g., Acme Health" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="workEmail">Work Email</label>
+            <input type="email" id="workEmail" name="workEmail" placeholder="you@company.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="companyWebsite">Company Website</label>
+            <input type="url" id="companyWebsite" name="companyWebsite" placeholder="https://example.com" required />
+            <small class="form-helper">We'll only scan public pages.</small>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Create Your First Week of Posts <span class="free-pill">FREE</span>
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Success State -->
+      <div id="successState" class="modal-content" style="display: none;">
+        <div class="success-message">
+          <div class="success-icon">🎉</div>
+          <h3>You're in!</h3>
+          <p>Thanks! We'll analyse your brand and prepare your first week of posts. You'll receive these by email, and we'll send your login link once the beta platform is live.</p>
+          <button class="btn btn-primary" id="successClose">Close</button>
+        </div>
+      </div>
+      
+      <!-- Error State -->
+      <div id="errorMessage" class="error-message" style="display: none;">
+        <p>Please check your details and try again.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="scripts.js"></script>
 </body>
 </html>

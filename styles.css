@@ -316,7 +316,6 @@ footer {
 .footer-tagline { color: rgba(255, 255, 255, 0.8); margin: 0 0 16px 0; font-size: 16px; line-height: 1.5; text-align: left; }
 .footer-email { color: #ffffff; text-decoration: none; font-weight: 500; text-align: left; display: block; transition: color 0.3s ease; }
 .footer-email:hover { color: #fbbf24; }
-.footer-right { }
 .footer-right h4 { margin: 0 0 12px 0; color: #ffffff; font-size: 18px; font-weight: 600; }
 .footer-social { display: flex; align-items: center; gap: 8px; color: #ffffff; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
 .footer-social:hover { color: #fbbf24; }
@@ -433,4 +432,223 @@ footer {
 .btn-outline { 
   border: 1px solid #cbd5e1; 
   color: #0f172a !important; /* Force dark text for outline button */
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9) translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #64748b;
+  transition: color 0.2s ease;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+.modal-content {
+  padding: 24px;
+}
+
+/* Form Styles */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1f6b2b;
+  box-shadow: 0 0 0 3px rgba(31, 107, 43, 0.1);
+}
+
+.form-group input:invalid {
+  border-color: #ef4444;
+}
+
+.form-group input:invalid:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-helper {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.form-actions {
+  margin-top: 8px;
+}
+
+.form-actions .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Submit Button States */
+.btn.submitting {
+  background: #94a3b8 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn.submitting .free-pill {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Success State */
+.success-message {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.success-message h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.success-message p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  font-size: 14px;
+}
+
+.success-message .btn {
+  min-width: 120px;
+}
+
+/* Error Message */
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 16px;
+}
+
+.error-message p {
+  margin: 0;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+    margin: 20px;
+    max-height: calc(100vh - 40px);
+  }
+  
+  .modal-header {
+    padding: 20px 20px 16px 20px;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-header h2 {
+    font-size: 18px;
+  }
+  
+  .signup-form {
+    gap: 16px;
+  }
 }
